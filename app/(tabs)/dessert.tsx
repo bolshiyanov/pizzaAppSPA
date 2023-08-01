@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { Text, View } from 'react-native';
 
-export default function TabOneScreen() {
+export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Pizzas</Text>
+      <Text style={styles.title}>Dessert</Text>
     </View>
   );
 }

@@ -1,40 +1,32 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome5  from '@expo/vector-icons/FontAwesome5';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import  Entypo from '@expo/vector-icons/Entypo';   
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
-
-import Colors from '@/constants/Colors';
+import { Pressable } from 'react-native';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-      }}>
+    <Tabs>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Pizzas',
+          tabBarIcon: () => <FontAwesome5 name="pizza-slice" size={24} color="black" />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
-                    name="info-circle"
+                    name="gittip"
                     size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}
@@ -44,10 +36,31 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="salad"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Salad',
+          tabBarIcon: () => <Entypo name="bowl" size={24} color="black" />,
+        }}
+      />
+      <Tabs.Screen
+        name="dessert"
+        options={{
+          title: 'Dessert',
+          tabBarIcon: () => <MaterialCommunityIcons name="cupcake" size={24} color="black" />,
+        }}
+      />
+      <Tabs.Screen
+        name="drinks"
+        options={{
+          title: 'Drinks',
+          tabBarIcon: () => <MaterialIcons name="local-drink" size={24} color="black" />,
+        }}
+      />
+      <Tabs.Screen
+        name="coffee"
+        options={{
+          title: 'Coffee',
+          tabBarIcon: () => <FontAwesome name="coffee" size={24} color="black" />,
         }}
       />
     </Tabs>
