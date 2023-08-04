@@ -1,51 +1,54 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
-import { useEffect } from 'react';
+import { Drawer } from "@/src/utils/Drawer";
+import { Link} from 'expo-router';
+import { Pressable } from 'react-native';
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-};
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+    // Ensure that reloading on `/modal` keeps a back button present.
+    initialRouteName: '/menu/(tabs)',
+  };
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    ...FontAwesome.font,
-  });
-
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
-
   return (
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
+    <Drawer >
+        <Drawer.Screen
+        name="index" // This is the name of the page and must match the url from root
+        options={{
+          drawerLabel: "Home",
+          title: "home",
+        }}
+      />
+      <Drawer.Screen
+        name="menu" // This is the name of the page and must match the url from root
+        options={{
+          drawerLabel: "Menu",
+          title: "Menu",
+          headerRight: () => (
+            <Link href='/menu/modal' asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    name="gittip"
+                    size={25}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
+        }}
+      />
+      
+      <Drawer.Screen
+        name="contacts" // This is the name of the page and must match the url from root
+        options={{
+          drawerLabel: "Contact",
+          title: "contact",
+        }}
+      />
+             
+    </Drawer>
   );
 }

@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { Text, View } from 'react-native';
 
-export default function TabTwoScreen() {
+export default function ContactsScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Dessert</Text>
+      <Text style={styles.title}>Contacts</Text>
     </View>
   );
 }

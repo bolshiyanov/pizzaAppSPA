@@ -14,25 +14,13 @@ import { Pressable } from 'react-native';
 export default function TabLayout() {
 
   return (
-    <Tabs>
+    <Tabs screenOptions={{headerShown: false}}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Pizzas',
           tabBarIcon: () => <FontAwesome5 name="pizza-slice" size={24} color="black" />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="gittip"
-                    size={25}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          
         }}
       />
       <Tabs.Screen
