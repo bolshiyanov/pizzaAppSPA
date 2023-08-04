@@ -1,27 +1,69 @@
-import { StyleSheet } from 'react-native';
-import { Text, View } from 'react-native';
+import { Link } from 'expo-router';
+import React from 'react';
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  FlatList,
+  Pressable,
+} from 'react-native';
 
-export default function TabTwoScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Coffee</Text>
-    </View>
+import coffee from '@/data/coffee';
+
+import { CoffeeItem } from '@/types/coffeeType';
+
+const CoffeePage = () => {
+  
+  const renderItem = ({ item }: { item: CoffeeItem }) => (
+    
+      <Link href={`/menu/coffee/${item.name}`} asChild>
+      <Pressable style={styles.city}>
+        <Image style={styles.image} source={{ uri: item.image }} />
+        <Text style={styles.name}>{item.name}</Text>
+      </Pressable>
+    </Link>
+    
   );
-}
+
+  
+
+  return (
+    <FlatList
+      data={coffee}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.name}
+      numColumns={2}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
+    padding: 16,
+    backgroundColor: '#F5F5F5',
+  },
+  city: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    aspectRatio: 1,
+    marginHorizontal: 8,
+    marginBottom: 16,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    elevation: 2,
+    overflow: 'hidden',
   },
-  title: {
-    fontSize: 20,
+  image: {
+    width: '100%',
+    height: '70%',
+  },
+  name: {
+    textAlign: 'center',
+    fontSize: 16,
     fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+    marginTop: 8,
   },
 });
+
+
+export default CoffeePage;

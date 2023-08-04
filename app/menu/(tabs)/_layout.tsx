@@ -3,12 +3,7 @@ import FontAwesome5  from '@expo/vector-icons/FontAwesome5';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import  Entypo from '@expo/vector-icons/Entypo';   
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
+import {  Tabs } from 'expo-router';
 
 
 export default function TabLayout() {
@@ -18,15 +13,15 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Pizzas',
+          title: 'Snack',
           tabBarIcon: () => <FontAwesome5 name="pizza-slice" size={24} color="black" />,
           
         }}
       />
       <Tabs.Screen
-        name="salad"
+        name="dishes"
         options={{
-          title: 'Salad',
+          title: 'Dishes',
           tabBarIcon: () => <Entypo name="bowl" size={24} color="black" />,
         }}
       />

@@ -6,9 +6,8 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 
 export const unstable_settings = {
-    // Ensure that reloading on `/modal` keeps a back button present.
-    initialRouteName: '/menu/(tabs)',
-  };
+  initialRouteName: 'index',
+};
 
 export default function RootLayout() {
   return (
