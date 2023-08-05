@@ -1,0 +1,46 @@
+export default [
+    {
+      id: 1,
+      name: 'Limonchelo',
+      marca: 'Luxardo Limoncello Liqueur',
+      type: 'Liqueur',
+      glass: true,
+      shot: true,
+      bottle: true,
+      descritions: "blablabla",
+      priceGlass: 8,
+      priceShot: 2,
+      priceBottle: 48,
+      image: 'https://source.unsplash.com/weekly?new-york-city',
+    },
+    {
+      id: 2,
+      name: '43',
+      marca: 'Liqueur Spain',
+      type: 'Liqueur',
+      glass: true,
+      shot: true,
+      bottle: true,
+      descritions: "blablabla",
+      priceGlass: 3,
+      priceShot: 2,
+      priceBottle: 23,
+      image: 'https://source.unsplash.com/weekly?new-york-city',
+    },
+    {
+      id: 3,
+      name: 'Smirnoff',
+      marca: 'Moscow alcoholic fabrica',
+      type: 'Vodka',
+      glass: true,
+      shot: true,
+      bottle: true,
+      descritions: "blablabla",
+      priceGlass: 8,
+      priceShot: 2,
+      priceBottle: 50,
+      image: 'https://source.unsplash.com/weekly?new-york-city',
+    }    
+  ];
+
+  

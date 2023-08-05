@@ -2,18 +2,18 @@ import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import data from "@/data/menu/coffeeData/coffeeAlcohol";
+import data from "@/data/menu/drinksData/drinksVineData";
 import { currencySymbol } from "@/data/settings/currency";
 
 import { ScrollView } from "react-native-gesture-handler";
 
-const CoffeeDetails = () => {
+const VinoDetails = () => {
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
   const item = data.find((c) => c.name.toString() === selectedName);
   const handlePressBack = () => {
-    router.replace("/menu/coffee/alcohol/");
+    router.replace("/menu/drinks/vine/");
   };
 
   return (
@@ -23,10 +23,16 @@ const CoffeeDetails = () => {
           <Image style={styles.image} source={{ uri: item.image }} />
           <Text style={styles.name}>{item.name}</Text>
           <View style={styles.detailsContainer}>
-            {item.alcohol && (
+            {item.type && (
               <Text style={styles.detailsTitle}>
-                Alcohol:
-                <Text style={styles.detailsText}>&nbsp;{item.alcohol}</Text>
+                Type:
+                <Text style={styles.detailsText}>&nbsp;{item.type}</Text>
+              </Text>
+            )}
+            {item.marca && (
+              <Text style={styles.detailsTitle}>
+                Marca:
+                <Text style={styles.detailsText}>&nbsp;{item.marca}</Text>
               </Text>
             )}
             {item.descritions && (
@@ -35,12 +41,24 @@ const CoffeeDetails = () => {
                 <Text style={styles.detailsText}>{item.descritions}</Text>
               </>
             )}
-            <Text style={styles.detailsTitle}>
-              Price:{" "}
-              <Text style={styles.detailsPrice}>
-                &nbsp;{item.price}&nbsp;{currencySymbol}&nbsp;
+
+            {item.glass && (
+              <Text style={styles.detailsTitle}>
+                Price glass of vine:{" "}
+                <Text style={styles.detailsPrice}>
+                  &nbsp;{item.priceGlass}&nbsp;{currencySymbol}&nbsp;
+                </Text>
               </Text>
-            </Text>
+            )}
+
+            {item.bottle && (
+              <Text style={styles.detailsTitle}>
+                Price bottle of vine:{" "}
+                <Text style={styles.detailsPrice}>
+                  &nbsp;{item.priceBottle}&nbsp;{currencySymbol}&nbsp;
+                </Text>
+              </Text>
+            )}
           </View>
         </>
       )}
@@ -102,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CoffeeDetails;
+export default VinoDetails;

@@ -1,0 +1,38 @@
+export default [
+  {
+    id: 1,
+    name: 'Castilo',
+    marca: 'Rioja ',
+    type: 'Red Vine',
+    glass: true,
+    bottle: true,
+    descritions: "blablabla",
+    priceGlass: 8,
+    priceBottle: 48,
+    image: 'https://source.unsplash.com/weekly?chicago',
+  },
+  {
+    id: 2,
+    name: 'San Valentino',
+    marca: 'Afrutada tenerife nord',
+    type: 'White Vine',
+    glass: true,
+    bottle: true,
+    descritions: "blablabla",
+    priceGlass: 3,
+    priceBottle: 23,
+    image: 'https://source.unsplash.com/weekly?moscow',
+  },
+  {
+    id: 3,
+    name: 'Ice',
+    marca: 'Don Perinon',
+    type: 'Champaine',
+    glass: true,
+    bottle: true,
+    descritions: "blablabla",
+    priceGlass: 8,
+    priceBottle: 50,
+    image: 'https://source.unsplash.com/weekly?new-york-city',
+  }    
+];

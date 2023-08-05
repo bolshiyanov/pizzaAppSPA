@@ -7,7 +7,7 @@ import { currencySymbol } from "@/data/settings/currency";
 
 import { ScrollView } from "react-native-gesture-handler";
 
-const CoffeeDetails = () => {
+const DessertDetails = () => {
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
@@ -29,8 +29,12 @@ const CoffeeDetails = () => {
                 <Text style={styles.detailsText}>&nbsp;{item.ingredients}</Text>
               </Text>
             )}
-            <Text style={styles.detailsTitle}>Details:</Text>
-            <Text style={styles.detailsText}>{item.descritions}</Text>
+            {item.descritions && (
+              <>
+                <Text style={styles.detailsTitle}>Details:</Text>
+                <Text style={styles.detailsText}>{item.descritions}</Text>
+              </>
+            )}
             <Text style={styles.detailsTitle}>
               Price:{" "}
               <Text style={styles.detailsPrice}>
@@ -98,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CoffeeDetails;
+export default DessertDetails;

@@ -1,4 +1,4 @@
-export interface CoffeeAlcoholInterface {
+export interface DessertlInterface {
     id: number;
     name: string;
     ingredients: string;

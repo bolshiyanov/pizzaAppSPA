@@ -11,11 +11,11 @@ import {
 
 import data from '@/data/menu/dessertData/dessertData';
 
-import { CoffeeInterface } from '@/types/coffeeType';
+import { DessertlInterface } from '@/types/desertType';
 
-const CoffeePage = () => {
+const DessertPage = () => {
   
-  const renderItem = ({ item }: { item: CoffeeInterface }) => (
+  const renderItem = ({ item }: { item: DessertlInterface  }) => (
     
       <Link href={`/menu/dessert/${item.name}`} asChild>
       <Pressable style={styles.city}>
@@ -31,7 +31,7 @@ const CoffeePage = () => {
       data={data}
       renderItem={renderItem}
       keyExtractor={(item) => item.name}
-      numColumns={3}
+      numColumns={2}
     />
   );
 };
@@ -57,11 +57,11 @@ const styles = StyleSheet.create({
   },
   name: {
     textAlign: 'center',
-    fontSize: 10,
+    fontSize: 14,
     fontWeight: 'bold',
     marginTop: 8,
   },
 });
 
 
-export default CoffeePage;
+export default DessertPage;

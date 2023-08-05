@@ -9,15 +9,15 @@ import {
   Pressable,
 } from 'react-native';
 
-import data from '@/data/menu/coffeeData/coffeeAlcohol';
+import data from '@/data/menu/drinksData/drinksAlcoholData';
 
-import { CoffeeAlcoholInterface } from '@/types/coffeeType';
+import { AlcoholInterface } from '@/types/drinksType';
 
-const CoffeePage = () => {
+const AlcoholPage = () => {
   
-  const renderItem = ({ item }: { item: CoffeeAlcoholInterface }) => (
+  const renderItem = ({ item }: { item: AlcoholInterface   }) => (
     
-      <Link href={`/menu/coffee/alcohol/${item.name}`} asChild>
+      <Link href={`/menu/drinks/beverages/${item.name}`} asChild>
       <Pressable style={styles.city}>
         <Image style={styles.image} source={{ uri: item.image }} />
         <Text style={styles.name}>{item.name}</Text>
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default CoffeePage;
+export default AlcoholPage;

@@ -23,8 +23,12 @@ const CoffeeDetails = () => {
           <Image style={styles.image} source={{ uri: item.image }} />
           <Text style={styles.name}>{item.name}</Text>
           <View style={styles.detailsContainer}>
-            <Text style={styles.detailsTitle}>Details:</Text>
-            <Text style={styles.detailsText}>{item.descritions}</Text>
+            {item.descritions && (
+              <>
+                <Text style={styles.detailsTitle}>Details:</Text>
+                <Text style={styles.detailsText}>{item.descritions}</Text>
+              </>
+            )}
             <Text style={styles.detailsTitle}>
               Price:{" "}
               <Text style={styles.detailsPrice}>
