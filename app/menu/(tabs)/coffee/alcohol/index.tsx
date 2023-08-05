@@ -9,7 +9,7 @@ import {
   Pressable,
 } from 'react-native';
 
-import coffee from '@/data/coffee';
+import coffeeAlcohol from '@/data/menu/coffee/coffeeAlcohol';
 
 import { CoffeeItem } from '@/types/coffeeType';
 
@@ -17,7 +17,7 @@ const CoffeePage = () => {
   
   const renderItem = ({ item }: { item: CoffeeItem }) => (
     
-      <Link href={`/menu/coffee/${item.name}`} asChild>
+      <Link href={`/menu/coffee/alcohol/${item.name}`} asChild>
       <Pressable style={styles.city}>
         <Image style={styles.image} source={{ uri: item.image }} />
         <Text style={styles.name}>{item.name}</Text>
@@ -26,11 +26,9 @@ const CoffeePage = () => {
     
   );
 
-  
-
   return (
     <FlatList
-      data={coffee}
+      data={coffeeAlcohol}
       renderItem={renderItem}
       keyExtractor={(item) => item.name}
       numColumns={2}

@@ -2,7 +2,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import coffee from "@/data/coffee";
+import coffee from "@/data/menu/coffee/coffee";
 import { ScrollView } from "react-native-gesture-handler";
 
 
@@ -14,7 +14,7 @@ const CoffeeDetails = () => {
 
   const city = coffee.find((c) => c.name.toString() === selectedName);
   const handlePressBack = () => {
-    router.replace("/menu/coffee/");
+    router.replace("/menu/coffee/classic/");
   };
 
   return (

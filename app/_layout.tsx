@@ -30,7 +30,7 @@ export default function RootLayout() {
                 {({ pressed }) => (
                   <FontAwesome
                     name="gittip"
-                    size={25}
+                    size={32}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}
