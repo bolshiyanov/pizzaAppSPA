@@ -9,7 +9,7 @@ import {
   Pressable,
 } from 'react-native';
 
-import coffeeAlcohol from '@/data/menu/coffee/coffeeAlcohol';
+import data from '@/data/menu/coffeeData/coffeeAlcohol';
 
 import { CoffeeAlcoholInterface } from '@/types/coffeeType';
 
@@ -28,7 +28,7 @@ const CoffeePage = () => {
 
   return (
     <FlatList
-      data={coffeeAlcohol}
+      data={data}
       renderItem={renderItem}
       keyExtractor={(item) => item.name}
       numColumns={2}

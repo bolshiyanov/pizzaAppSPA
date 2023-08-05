@@ -1,13 +1,12 @@
-import { MaterialTopTabs } from "@/src/utils/material-top-tabs";
+import { Stack } from "expo-router";
+
+export const unstable_settings = {
+  initialRouteName: "index",
+};
 
 export default function Layout() {
   return (
-    <MaterialTopTabs
-      screenOptions={
-        {
-          // API Reference: https://reactnavigation.org/docs/material-top-tab-navigator#options
-        }
-      }
-    />
+      <Stack screenOptions={{ headerShown: false }} />
+      
   );
 }

@@ -2,7 +2,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import coffeeAlcohol from "@/data/menu/coffee/coffeeAlcohol";
+import data from "@/data/menu/coffeeData/coffeeAlcohol";
 import { currencySymbol } from "@/data/settings/currency";
 
 import { ScrollView } from "react-native-gesture-handler";
@@ -11,7 +11,7 @@ const CoffeeDetails = () => {
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
-  const item = coffeeAlcohol.find((c) => c.name.toString() === selectedName);
+  const item = data.find((c) => c.name.toString() === selectedName);
   const handlePressBack = () => {
     router.replace("/menu/coffee/alcohol/");
   };

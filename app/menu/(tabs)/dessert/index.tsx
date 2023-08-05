@@ -1,37 +1,67 @@
-import { Link } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { Link, Stack  } from 'expo-router';
+import React from 'react';
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  FlatList,
+  Pressable,
+} from 'react-native';
 
-export default function Page() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Material Top Tabs</Text>
-        <Link href="/menu/dessert/second" style={styles.subtitle}>
-          Next
-        </Link>
-      </View>
-    </View>
+import data from '@/data/menu/dessertData/dessertData';
+
+import { CoffeeInterface } from '@/types/coffeeType';
+
+const CoffeePage = () => {
+  
+  const renderItem = ({ item }: { item: CoffeeInterface }) => (
+    
+      <Link href={`/menu/dessert/${item.name}`} asChild>
+      <Pressable style={styles.city}>
+        <Image style={styles.image} source={{ uri: item.image }} />
+        <Text style={styles.name}>{item.name}</Text>
+      </Pressable>
+    </Link>
+    
   );
-}
+
+  return (
+    <FlatList
+      data={data}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.name}
+      numColumns={3}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
+    padding: 16,
+    backgroundColor: '#F5F5F5',
+  },
+  city: {
     flex: 1,
-    alignItems: "center",
-    padding: 24,
+    aspectRatio: 1,
+    marginHorizontal: 8,
+    marginBottom: 16,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    elevation: 2,
+    overflow: 'hidden',
   },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
+  image: {
+    width: '100%',
+    height: '70%',
   },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
+  name: {
+    textAlign: 'center',
+    fontSize: 10,
+    fontWeight: 'bold',
+    marginTop: 8,
   },
 });
+
+
+export default CoffeePage;

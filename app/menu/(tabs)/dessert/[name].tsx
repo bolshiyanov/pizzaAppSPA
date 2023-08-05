@@ -2,7 +2,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import coffee from "@/data/menu/coffeeData/coffeeData";
+import data from "@/data/menu/dessertData/dessertData";
 import { currencySymbol } from "@/data/settings/currency";
 
 import { ScrollView } from "react-native-gesture-handler";
@@ -11,9 +11,9 @@ const CoffeeDetails = () => {
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
-  const item = coffee.find((c) => c.name.toString() === selectedName);
+  const item = data.find((c) => c.name.toString() === selectedName);
   const handlePressBack = () => {
-    router.replace("/menu/coffee/classic/");
+    router.replace("/menu/dessert/");
   };
 
   return (
@@ -23,6 +23,12 @@ const CoffeeDetails = () => {
           <Image style={styles.image} source={{ uri: item.image }} />
           <Text style={styles.name}>{item.name}</Text>
           <View style={styles.detailsContainer}>
+            {item.ingredients && (
+              <Text style={styles.detailsTitle}>
+                Ingredients:
+                <Text style={styles.detailsText}>&nbsp;{item.ingredients}</Text>
+              </Text>
+            )}
             <Text style={styles.detailsTitle}>Details:</Text>
             <Text style={styles.detailsText}>{item.descritions}</Text>
             <Text style={styles.detailsTitle}>
@@ -79,6 +85,7 @@ const styles = StyleSheet.create({
   detailsText: {
     fontSize: 16,
     lineHeight: 24,
+    fontWeight: "300",
   },
   backButton: {
     position: "absolute",

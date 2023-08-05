@@ -9,11 +9,11 @@ import {
   Pressable,
 } from 'react-native';
 
-import coffee from '@/data/menu/coffee/coffee';
+import data from '@/data/menu/coffeeData/coffeeData';
 
 import { CoffeeInterface } from '@/types/coffeeType';
 
-const CoffeePage = () => {
+const CoffeeAlcoholPage = () => {
   
   const renderItem = ({ item }: { item: CoffeeInterface }) => (
     
@@ -28,7 +28,7 @@ const CoffeePage = () => {
 
   return (
     <FlatList
-      data={coffee}
+      data={data}
       renderItem={renderItem}
       keyExtractor={(item) => item.name}
       numColumns={2}
@@ -64,4 +64,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default CoffeePage;
+export default CoffeeAlcoholPage;
