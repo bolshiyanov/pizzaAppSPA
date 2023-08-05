@@ -46,6 +46,7 @@ export default function TabLayout() {
           tabBarIcon: () => <FontAwesome name="coffee" size={24} color="black" />,
         }}
       />
+      
     </Tabs>
   );
 }

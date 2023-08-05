@@ -1,19 +1,24 @@
-import {  useGlobalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
-import { View, StyleSheet, Image, Text} from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import coffee from "@/data/coffee";
+import { ScrollView } from "react-native-gesture-handler";
+
+
+
 
 const CoffeeDetails = () => {
-  const { name } = useGlobalSearchParams();
-
+  const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
   const city = coffee.find((c) => c.name.toString() === selectedName);
-
-  
+  const handlePressBack = () => {
+    router.replace("/menu/coffee/");
+  };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {city && (
         <>
           <Image style={styles.image} source={{ uri: city.image }} />
@@ -35,7 +40,13 @@ const CoffeeDetails = () => {
         </>
       )}
 
-    </View>
+      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
+        <Ionicons name="ios-arrow-back" size={30} color="#000000" />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
+        <Ionicons name="ios-arrow-back" size={26} color="#FFFFFF" />
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
 
@@ -69,11 +80,11 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: "absolute",
-    top: 50,
-    left: 16,
+    top: 0,
+    left: 4,
     padding: 8,
     borderRadius: 8,
-    backgroundColor: "#000000",
+    backgroundColor: "transparent",
     opacity: 0.8,
   },
 });
