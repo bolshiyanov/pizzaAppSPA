@@ -4,7 +4,7 @@ export default [
       name: 'Baraquito',
       alcohol: 'Licor 43',
       descritions: "blablabla",
-      price: "1.2",
+      price: 1.2,
       image: 'https://source.unsplash.com/weekly?new-york-city',
     },
     {
@@ -12,7 +12,7 @@ export default [
       name: 'Irish Coffee',
       alcohol: 'Bandy',
       descritions: "blablabla",
-      price: "3.2",
+      price: 3.2,
       image: 'https://source.unsplash.com/weekly?paris',
     },
     {
@@ -20,7 +20,7 @@ export default [
       name: 'Baileys Coffee',
       alcohol: 'Baileys licor',
       descritions: "blablabla",
-      price: "1.8",
+      price: 1.8,
       image: 'https://source.unsplash.com/weekly?tokyo',
     },
     {
@@ -28,7 +28,7 @@ export default [
       name: 'Ice',
       alcohol: '',
       descritions: "blablabla",
-      price: "0",
+      price: 0,
       image: 'https://source.unsplash.com/weekly?tokyo',
     }
   ];

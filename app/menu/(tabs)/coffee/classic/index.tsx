@@ -11,11 +11,11 @@ import {
 
 import coffee from '@/data/menu/coffee/coffee';
 
-import { CoffeeItem } from '@/types/coffeeType';
+import { CoffeeInterface } from '@/types/coffeeType';
 
 const CoffeePage = () => {
   
-  const renderItem = ({ item }: { item: CoffeeItem }) => (
+  const renderItem = ({ item }: { item: CoffeeInterface }) => (
     
       <Link href={`/menu/coffee/classic/${item.name}`} asChild>
       <Pressable style={styles.city}>

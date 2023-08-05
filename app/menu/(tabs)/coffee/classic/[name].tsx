@@ -3,38 +3,33 @@ import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import coffee from "@/data/menu/coffee/coffee";
+import { currencySymbol } from "@/data/settings/currency";
+
 import { ScrollView } from "react-native-gesture-handler";
-
-
-
 
 const CoffeeDetails = () => {
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
-  const city = coffee.find((c) => c.name.toString() === selectedName);
+  const item = coffee.find((c) => c.name.toString() === selectedName);
   const handlePressBack = () => {
     router.replace("/menu/coffee/classic/");
   };
 
   return (
     <ScrollView style={styles.container}>
-      {city && (
+      {item && (
         <>
-          <Image style={styles.image} source={{ uri: city.image }} />
-          <Text style={styles.name}>{city.name}</Text>
+          <Image style={styles.image} source={{ uri: item.image }} />
+          <Text style={styles.name}>{item.name}</Text>
           <View style={styles.detailsContainer}>
             <Text style={styles.detailsTitle}>Details:</Text>
-            <Text style={styles.detailsText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at
-              purus euismod, vestibulum dolor a, pulvinar odio. Nunc suscipit
-              felis eget est consequat, ac consequat metus aliquet. Vivamus
-              faucibus libero sit amet semper molestie. Sed euismod ligula sit
-              amet urna maximus dignissim. Praesent aliquam, nunc vel interdum
-              dignissim, risus neque dignissim elit, id posuere mauris tortor at
-              quam. Duis euismod lobortis enim, vel sollicitudin purus bibendum
-              eu. Pellentesque luctus leo id elit congue faucibus. Morbi vel
-              nulla enim.
+            <Text style={styles.detailsText}>{item.descritions}</Text>
+            <Text style={styles.detailsTitle}>
+              Price:{" "}
+              <Text style={styles.detailsPrice}>
+                &nbsp;{item.price}&nbsp;{currencySymbol}&nbsp;
+              </Text>
             </Text>
           </View>
         </>
@@ -72,6 +67,13 @@ const styles = StyleSheet.create({
   detailsTitle: {
     fontSize: 18,
     fontWeight: "bold",
+    marginBottom: 8,
+  },
+  detailsPrice: {
+    fontSize: 18,
+    backgroundColor: "#2f95dc",
+    color: "#ffffff",
+    borderRadius: 10,
     marginBottom: 8,
   },
   detailsText: {
