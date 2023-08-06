@@ -11,9 +11,9 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{headerShown: false}}>
       <Tabs.Screen
-        name="index"
+        name="snacks"
         options={{
-          title: 'Snack',
+          title: 'Snacks',
           tabBarIcon: () => <FontAwesome5 name="pizza-slice" size={24} color="black" />,
           
         }}
