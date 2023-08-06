@@ -4,8 +4,11 @@ export interface SettingsInterface {
   area: String;
   provincia: String;
   country: String;
+  titleSeo: String;
+  descriotionsSeo: String;
+  keyPhrases: String;
   timeZone: String;
-  descritions: String;
+  descritionsText: String;
   logo: String;
   backGroundLogo: String;
   geoParking: String;
