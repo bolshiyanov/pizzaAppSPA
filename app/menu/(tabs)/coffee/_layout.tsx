@@ -1,4 +1,4 @@
-import { MaterialTopTabs } from "@/src/utils/material-top-tabs";
+import { MaterialTopTabs } from "@/src/utils/navigations/material-top-tabs";
 
 export const unstable_settings = {
     initialRouteName: 'classic',

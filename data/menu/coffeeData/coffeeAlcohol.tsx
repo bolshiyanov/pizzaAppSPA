@@ -1,6 +1,6 @@
 export default [
     {
-      id: 1,
+      id: "1",
       name: 'Baraquito',
       alcohol: 'Licor 43',
       descritions: "blablabla",
@@ -8,7 +8,7 @@ export default [
       image: 'https://source.unsplash.com/weekly?new-york-city',
     },
     {
-      id: 2,
+      id: "2",
       name: 'Irish Coffee',
       alcohol: 'Bandy',
       descritions: "blablabla",
@@ -16,7 +16,7 @@ export default [
       image: 'https://source.unsplash.com/weekly?paris',
     },
     {
-      id: 3,
+      id: "3",
       name: 'Baileys Coffee',
       alcohol: 'Baileys licor',
       descritions: "blablabla",
@@ -24,7 +24,7 @@ export default [
       image: 'https://source.unsplash.com/weekly?tokyo',
     },
     {
-      id: 4,
+      id: "4",
       name: 'Ice',
       alcohol: '',
       descritions: "blablabla",

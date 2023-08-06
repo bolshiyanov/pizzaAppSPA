@@ -1,53 +1,59 @@
-import { Drawer } from "@/src/utils/Drawer";
-import { Link} from 'expo-router';
-import { Pressable } from 'react-native';
+import React from "react";
+import { Provider } from "react-redux";
+import { setupStore } from "@/store/store";
 
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Drawer } from "@/src/utils/navigations/Drawer";
+import { Link } from "expo-router";
+import { Pressable } from "react-native";
 
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export const unstable_settings = {
-  initialRouteName: 'index',
+  initialRouteName: "index",
 };
+
+const store = setupStore();
 
 export default function RootLayout() {
   return (
-    <Drawer >
+    <Provider store={store}>
+      <Drawer>
         <Drawer.Screen
-        name="index" // This is the name of the page and must match the url from root
-        options={{
-          drawerLabel: "Home",
-          title: "Fermento",
-        }}
-      />
-      <Drawer.Screen
-        name="menu" // This is the name of the page and must match the url from root
-        options={{
-          drawerLabel: "Menu",
-          title: "Menu",
-          headerRight: () => (
-            <Link href='/menu/modal' asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="gittip"
-                    size={32}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
-        }}
-      />
-      
-      <Drawer.Screen
-        name="contacts" // This is the name of the page and must match the url from root
-        options={{
-          drawerLabel: "Contact",
-          title: "contact",
-        }}
-      />
-             
-    </Drawer>
+          name="index" // This is the name of the page and must match the url from root
+          options={{
+            drawerLabel: "Home",
+            title: "Fermento",
+          }}
+        />
+        <Drawer.Screen
+          name="menu" // This is the name of the page and must match the url from root
+          options={{
+            drawerLabel: "Menu",
+            title: "Menu",
+            headerRight: () => (
+              <Link href="/menu/modal" asChild>
+                <Pressable>
+                  {({ pressed }) => (
+                    <FontAwesome
+                      name="gittip"
+                      size={32}
+                      style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                    />
+                  )}
+                </Pressable>
+              </Link>
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="contacts" // This is the name of the page and must match the url from root
+          options={{
+            drawerLabel: "Contact",
+            title: "contact",
+          }}
+        />
+      </Drawer>
+    </Provider>
   );
 }

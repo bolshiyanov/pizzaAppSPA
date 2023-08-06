@@ -1,5 +1,5 @@
 export interface CoffeeAlcoholInterface {
-    id: number;
+    id: string;
     name: string;
     alcohol: string;
     descritions: string;
@@ -8,7 +8,7 @@ export interface CoffeeAlcoholInterface {
   };
 
   export interface CoffeeInterface {
-    id: number;
+    id: string;
     name: string;
     descritions: string;
     price: number;
