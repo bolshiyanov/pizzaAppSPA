@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Provider } from "react-redux";
 import { setupStore } from "@/store/store";
 
@@ -7,6 +8,7 @@ import { Link } from "expo-router";
 import { Pressable } from "react-native";
 
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Counter from "@/src/utils/counter";
 
 export const unstable_settings = {
   initialRouteName: "index",
@@ -32,13 +34,18 @@ export default function RootLayout() {
             title: "Menu",
             headerRight: () => (
               <Link href="/menu/modal" asChild>
-                <Pressable>
+                <Pressable style={{position: 'relative'}}>
                   {({ pressed }) => (
-                    <FontAwesome
-                      name="gittip"
-                      size={32}
-                      style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                    />
+                    <>
+                      <FontAwesome
+                        name="gittip"
+                        size={32}
+                        style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                      />
+                      
+      <Counter/>
+                      
+                    </>
                   )}
                 </Pressable>
               </Link>

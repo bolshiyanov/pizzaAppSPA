@@ -10,7 +10,13 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import Button from "@/src/components/common/Button";
 
+
+
+
+
+
 const CoffeeDetails = () => {
+
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
@@ -18,6 +24,8 @@ const CoffeeDetails = () => {
   const handlePressBack = () => {
     router.replace("/menu/coffee/alcohol/");
   }; 
+
+  
 
   return (
     <ScrollView style={styles.container}>
@@ -32,7 +40,7 @@ const CoffeeDetails = () => {
                 <Text style={styles.detailsText}>&nbsp;{item.alcohol}</Text>
               </Text>
             )}
-            
+
             <Button id={item.id} />
             
             {item.descritions && (
