@@ -7,6 +7,8 @@ import { currencySymbol } from "@/data/settings/currency";
 
 import { ScrollView } from "react-native-gesture-handler";
 
+import Button from "@/src/components/common/Button";
+
 const CoffeeDetails = () => {
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
@@ -23,6 +25,7 @@ const CoffeeDetails = () => {
           <Image style={styles.image} source={{ uri: item.image }} />
           <Text style={styles.name}>{item.name}</Text>
           <View style={styles.detailsContainer}>
+            <Button id={item.id} />
             {item.descritions && (
               <>
                 <Text style={styles.detailsTitle}>Details:</Text>

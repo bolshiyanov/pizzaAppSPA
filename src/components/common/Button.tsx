@@ -1,18 +1,42 @@
 import React from "react";
-import { Text, StyleSheet, Pressable } from "react-native";
+
+import { useAppDispatch, useAppSelector } from "@/src/utils/hooks/redux";
+import { wishListSlice } from "@/store/redusers/wishListReducer/wishListSlice";
+
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { tintColorLight } from "@/constants/Colors";
 
 interface ButtonProps {
-  onPress: () => void;
-  title: string;
+  id: string;
 }
 
 export default function Button(props: ButtonProps) {
-  const { onPress, title } = props;
+  const { id } = props;
+
+  const { addToWishList } = wishListSlice.actions;
+
+  const { items: wishList } = useAppSelector((state) => state.wishListReducer);
+
+  const dispatch = useAppDispatch();
+
+  const hasAddedToWishList = () => {
+    dispatch(addToWishList(id));
+  };
+
+  const hasItemInWishList = wishList.includes(id);
+
+  const Separator = () => <View style={styles.separator} />;
+  if (hasItemInWishList) {
+    return <Separator />;
+  }
+
   return (
-    <Pressable style={styles.button} onPress={onPress}>
-      <Text style={styles.text}>{title}</Text>
-    </Pressable>
+    <>
+      <Pressable style={styles.button} onPress={hasAddedToWishList}>
+        <Text style={styles.text}>Add to wish list</Text>
+      </Pressable>
+      <Separator />
+    </>
   );
 }
 
@@ -39,5 +63,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: "#737373",
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 });

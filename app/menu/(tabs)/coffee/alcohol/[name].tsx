@@ -1,8 +1,6 @@
 import { router, useLocalSearchParams } from "expo-router";
 import React from "react";
 
-import { useAppDispatch, useAppSelector } from "@/src/utils/hooks/redux";
-import { wishListSlice } from "@/store/redusers/wishListReducer/wishListSlice";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -19,23 +17,7 @@ const CoffeeDetails = () => {
   const item = data.find((c) => c.name.toString() === selectedName);
   const handlePressBack = () => {
     router.replace("/menu/coffee/alcohol/");
-  };
-
-  const { addToWishList } = wishListSlice.actions;
-
-  const { items: wishList } = useAppSelector((state) => state.wishListReducer);
-console.log('wishList ', wishList)
-
-  const dispatch = useAppDispatch();
-
-  const Separator = () => <View style={styles.separator} />;
-
-  const hasAddedToWishList = () => {
-    if (item) {
-      dispatch(addToWishList(item.id));
-      console.log('dispatch item.id ', item.id) // Dispatch the action
-    }
-  };
+  }; 
 
   return (
     <ScrollView style={styles.container}>
@@ -50,8 +32,9 @@ console.log('wishList ', wishList)
                 <Text style={styles.detailsText}>&nbsp;{item.alcohol}</Text>
               </Text>
             )}
-            <Button onPress={hasAddedToWishList} title="Add to Wish list" />
-            <Separator />
+            
+            <Button id={item.id} />
+            
             {item.descritions && (
               <>
                 <Text style={styles.detailsTitle}>Details:</Text>
@@ -122,12 +105,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "transparent",
     opacity: 0.8,
-  },
-  separator: {
-    marginVertical: 8,
-    borderBottomColor: "#737373",
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+  }
 });
 
 export default CoffeeDetails;

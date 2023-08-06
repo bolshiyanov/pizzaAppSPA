@@ -7,6 +7,8 @@ import { currencySymbol } from "@/data/settings/currency";
 
 import { ScrollView } from "react-native-gesture-handler";
 
+import Button from "@/src/components/common/Button";
+
 const DishesFirstDetails = () => {
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
@@ -32,6 +34,7 @@ const DishesFirstDetails = () => {
                 <Text style={styles.detailsText}>&nbsp;{item.ingredients}</Text>
               </Text>
             )}
+            <Button id={item.id} />
             {item.descritions && (
               <>
                 <Text style={styles.detailsTitle}>Details:</Text>
