@@ -1,4 +1,3 @@
-// button.tsx
 
 import React from "react";
 import { useRouter } from "expo-router";
@@ -38,7 +37,13 @@ export default function Button(props: ButtonProps) {
     dispatch(removeFromWishList(id));
   };
 
+  
+
   const hasItemInWishList = wishList.includes(id);
+
+  if (!id) {
+    return null;
+  }
 
   return (
     <View style={styles.buttonContainer}>

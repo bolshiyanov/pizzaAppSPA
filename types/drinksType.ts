@@ -1,5 +1,5 @@
 export interface VinoInterface {
-  id: number;
+  id: string;
   name: string;
   marca: string;
   type: string;
@@ -12,7 +12,7 @@ export interface VinoInterface {
   };
 
   export interface AlcoholInterface {
-    id: number;
+    id: string;
     name: string;
     marca: string;
     type: string;
@@ -27,7 +27,7 @@ export interface VinoInterface {
   };
 
   export interface BeveragesInterface {
-    id: number;
+    id: string;
     name: string;
     marca: string;
     type: string;

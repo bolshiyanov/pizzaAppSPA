@@ -1,5 +1,5 @@
 export interface DishesInterface {
-  id: number;
+  id: string;
   name: string;
   ingredients: string;
   descritions: string;

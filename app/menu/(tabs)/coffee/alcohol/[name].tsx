@@ -1,8 +1,8 @@
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
 
-import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, StyleSheet, Image, Text } from "react-native";
+
 
 import data from "@/data/menu/coffeeData/coffeeAlcohol";
 import { currencySymbol } from "@/data/settings/currency";
@@ -17,10 +17,11 @@ const CoffeeDetails = () => {
   const item = data.find((c) => c.name.toString() === selectedName);
 
   const path = "/menu/coffee/alcohol/";
-  
 
   return (
     <ScrollView style={styles.container}>
+      
+      
       {item && (
         <>
           <Image style={styles.image} source={{ uri: item.image }} />

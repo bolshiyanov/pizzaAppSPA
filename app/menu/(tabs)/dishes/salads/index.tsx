@@ -1,5 +1,7 @@
 import { Link, Stack  } from 'expo-router';
 import React from 'react';
+import Indicator from "@/src/components/common/Indicator";
+
 import {
   View,
   StyleSheet,
@@ -21,6 +23,7 @@ const SaladsPage = () => {
       <Pressable style={styles.city}>
         <Image style={styles.image} source={{ uri: item.image }} />
         <Text style={styles.name}>{item.name}</Text>
+        <Indicator id={item.id} />
       </Pressable>
     </Link>
     

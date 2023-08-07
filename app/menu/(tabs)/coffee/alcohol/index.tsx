@@ -1,5 +1,7 @@
 import { Link, Stack  } from 'expo-router';
 import React from 'react';
+import Indicator from "@/src/components/common/Indicator";
+
 import {
   View,
   StyleSheet,
@@ -14,13 +16,13 @@ import data from '@/data/menu/coffeeData/coffeeAlcohol';
 import { CoffeeAlcoholInterface } from '@/types/coffeeType';
 
 const CoffeePage = () => {
-  
   const renderItem = ({ item }: { item: CoffeeAlcoholInterface }) => (
     
       <Link href={`/menu/coffee/alcohol/${item.name}`} asChild>
       <Pressable style={styles.city}>
         <Image style={styles.image} source={{ uri: item.image }} />
         <Text style={styles.name}>{item.name}</Text>
+        <Indicator id={item.id} />
       </Pressable>
     </Link>
     

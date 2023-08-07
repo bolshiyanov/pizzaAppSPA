@@ -1,5 +1,5 @@
 export interface DessertlInterface {
-    id: number;
+    id: string;
     name: string;
     ingredients: string;
     alergens: string[];
