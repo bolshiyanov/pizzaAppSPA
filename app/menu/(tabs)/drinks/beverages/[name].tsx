@@ -1,7 +1,7 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, StyleSheet, Image, Text } from "react-native";
+
 import data from "@/data/menu/drinksData/drinksBeveragesData";
 import { currencySymbol } from "@/data/settings/currency";
 
@@ -14,9 +14,7 @@ const BeveragesDetails = () => {
   const selectedName = Array.isArray(name) ? name[0] : name;
 
   const item = data.find((c) => c.name.toString() === selectedName);
-  const handlePressBack = () => {
-    router.replace("/menu/drinks/beverages/");
-  };
+  const path = "/menu/drinks/beverages/";
 
   return (
     <ScrollView style={styles.container}>
@@ -37,9 +35,9 @@ const BeveragesDetails = () => {
                 <Text style={styles.detailsText}>&nbsp;{item.marca}</Text>
               </Text>
             )}
-                        
-            <Button id={item.id} />
-            
+
+            <Button id={item.id} path={path} />
+
             {item.descritions && (
               <>
                 <Text style={styles.detailsTitle}>Details:</Text>
@@ -76,13 +74,6 @@ const BeveragesDetails = () => {
           </View>
         </>
       )}
-
-      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
-        <Ionicons name="ios-arrow-back" size={30} color="#000000" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
-        <Ionicons name="ios-arrow-back" size={26} color="#FFFFFF" />
-      </TouchableOpacity>
     </ScrollView>
   );
 };

@@ -1,7 +1,7 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, StyleSheet, Image, Text } from "react-native";
+
 import data from "@/data/menu/snacksData/snacksClassicData";
 import { currencySymbol } from "@/data/settings/currency";
 
@@ -14,9 +14,8 @@ const SnacksClassicDetails = () => {
   const selectedName = Array.isArray(name) ? name[0] : name;
 
   const item = data.find((c) => c.name.toString() === selectedName);
-  const handlePressBack = () => {
-    router.replace("/menu/snacks/classic/");
-  };
+
+  const path = "/menu/snacks/classic/";
 
   return (
     <ScrollView style={styles.container}>
@@ -34,10 +33,9 @@ const SnacksClassicDetails = () => {
                 <Text style={styles.detailsText}>&nbsp;{item.ingredients}</Text>
               </Text>
             )}
-            
-            <Button id={item.id} />
-            
-            
+
+            <Button id={item.id} path={path} />
+
             {item.descritions && (
               <>
                 <Text style={styles.detailsTitle}>Details:</Text>
@@ -72,13 +70,6 @@ const SnacksClassicDetails = () => {
           </View>
         </>
       )}
-
-      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
-        <Ionicons name="ios-arrow-back" size={30} color="#000000" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
-        <Ionicons name="ios-arrow-back" size={26} color="#FFFFFF" />
-      </TouchableOpacity>
     </ScrollView>
   );
 };

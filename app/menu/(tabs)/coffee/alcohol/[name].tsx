@@ -1,4 +1,4 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 import React from "react";
 
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
@@ -10,21 +10,13 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import Button from "@/src/components/common/Button";
 
-
-
-
-
-
 const CoffeeDetails = () => {
-
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
   const item = data.find((c) => c.name.toString() === selectedName);
-  const handlePressBack = () => {
-    router.replace("/menu/coffee/alcohol/");
-  }; 
 
+  const path = "/menu/coffee/alcohol/";
   
 
   return (
@@ -41,8 +33,8 @@ const CoffeeDetails = () => {
               </Text>
             )}
 
-            <Button id={item.id} />
-            
+            <Button id={item.id} path={path} />
+
             {item.descritions && (
               <>
                 <Text style={styles.detailsTitle}>Details:</Text>
@@ -59,12 +51,6 @@ const CoffeeDetails = () => {
         </>
       )}
 
-      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
-        <Ionicons name="ios-arrow-back" size={30} color="#000000" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
-        <Ionicons name="ios-arrow-back" size={26} color="#FFFFFF" />
-      </TouchableOpacity>
     </ScrollView>
   );
 };
@@ -113,7 +99,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: "transparent",
     opacity: 0.8,
-  }
+  },
 });
 
 export default CoffeeDetails;
