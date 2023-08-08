@@ -1,18 +1,18 @@
 export default [
   {
     id: "wrtyeytjrtnj",
-    name: 'Savory Harmony',
-    ingredients: 'ingredient, ingredient, ingredient, ingredient, ',
+    name: "Savory Harmony",
+    ingredients: "ingredient, ingredient, ingredient, ingredient, ",
     descritions: "blablabla",
-    type: 'Second Plate',
+    type: "Second Plate",
 
-    causine: 'European',
+    causine: "European",
 
     coocingTime: 30,
 
     hasBreakfast: true,
     hasLunch: true,
-    hasDinner: true, 
+    hasDinner: true,
 
     takeAway: true,
     delivery: true,
@@ -27,7 +27,7 @@ export default [
     hasPeanuts: false,
     hasSoy: false,
     hasCelery: false,
-    hasMustard: false, 
+    hasMustard: false,
     hasSesame: false,
     hasSulphites: false,
 
@@ -43,14 +43,17 @@ export default [
     poultry: false,
     fish: false,
 
-    sizeSmall: 'plate',
-    sizeMidl: 'for 2 person',
-    sizeBig: 'for 6 person',
+    sizeSmall: "plate",
+    sizeMidl: "for 2 person",
+    sizeBig: "for 6 person",
 
     priceSmall: 8,
     priceMidl: 2,
     priceBig: 48,
-    image: 'https://source.unsplash.com/weekly?new-york-city',
-  }    
+    order: 0,
+    useInPdf: true,
+    useInPdfWithAlergens: false,
+    useInPdfWithQR: false,
+    image: "https://source.unsplash.com/weekly?new-york-city",
+  },
 ];
-

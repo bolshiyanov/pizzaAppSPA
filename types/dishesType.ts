@@ -40,5 +40,9 @@ export interface DishesInterface {
   priceSmall: number;
   priceMidl: number;
   priceBig: number;
+  order: number;
+  useInPdf: boolean;
+  useInPdfWithAlergens: boolean;
+  useInPdfWithQR: boolean;
   image: string;
 }

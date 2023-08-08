@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useRouter } from "expo-router";
 import { View, Text, StyleSheet, Pressable } from "react-native";
@@ -36,8 +35,6 @@ export default function Button(props: ButtonProps) {
   const unsubscribe = () => {
     dispatch(removeFromWishList(id));
   };
-
-  
 
   const hasItemInWishList = wishList.includes(id);
 
@@ -85,11 +82,14 @@ const styles = StyleSheet.create({
     height: 48,
   },
   button: {
+    height: 48,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 10,
     borderRadius: 4,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: tintColorLight,
   },
   buttonRemove: {
+    height: 48,
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#cccccc",
   },
   text: {
-    fontSize: 14,
+    fontSize: 16,
     lineHeight: 21,
     fontWeight: "bold",
     letterSpacing: 0.25,

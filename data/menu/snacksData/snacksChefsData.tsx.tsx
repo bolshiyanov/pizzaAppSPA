@@ -1,18 +1,18 @@
 export default [
   {
     id: "xcghxgb",
-    name: 'Fermento',
-    ingredients: 'ingredient, ingredient, ingredient, ingredient, ',
+    name: "Fermento",
+    ingredients: "ingredient, ingredient, ingredient, ingredient, ",
     descritions: "blablabla",
-    type: 'Chefs Pizza Roman',
+    type: "Chefs Pizza Roman",
 
-    causine: 'Italian',
+    causine: "Italian",
 
     coocingTime: 30,
 
     hasBreakfast: true,
     hasLunch: true,
-    hasDinner: true, 
+    hasDinner: true,
 
     takeAway: true,
     delivery: true,
@@ -27,7 +27,7 @@ export default [
     hasPeanuts: false,
     hasSoy: false,
     hasCelery: false,
-    hasMustard: false, 
+    hasMustard: false,
     hasSesame: false,
     hasSulphites: false,
 
@@ -43,14 +43,19 @@ export default [
     poultry: false,
     fish: false,
 
-    sizeSmall: '',
-    sizeMidl: 'for 2 person',
-    sizeBig: '',
+    sizeSmall: "",
+    sizeMidl: "for 2 person",
+    sizeBig: "",
 
     priceSmall: 8,
     priceMidl: 20,
     priceBig: 48,
-    image: 'https://source.unsplash.com/weekly?new-york-city',
-  }    
-];
 
+    order: 0,
+    useInPdf: true,
+    useInPdfWithAlergens: false,
+    useInPdfWithQR: false,
+
+    image: "https://source.unsplash.com/weekly?new-york-city",
+  },
+];
