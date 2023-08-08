@@ -11,7 +11,7 @@ import {
   Pressable,
 } from 'react-native';
 
-import data from '@/data/menu/dishesData/dishesSecondData.tsx';
+import data from '@/data/menu/dishesData/dishesSecondData';
 
 import { DishesInterface} from '@/types/dishesType';
 

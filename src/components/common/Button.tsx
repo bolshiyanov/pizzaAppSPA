@@ -44,25 +44,14 @@ export default function Button(props: ButtonProps) {
 
   return (
     <View style={styles.buttonContainer}>
-      <View style={styles.firstButton}>
-        <Pressable
-          style={hasItemInWishList ? styles.buttonRemove : styles.button}
-          onPress={handlePressBack}
-        >
-          <Feather name="arrow-left-circle" size={24} color="white" />
-        </Pressable>
-      </View>
-
-      <View style={styles.secondButton}>
-        <Pressable
-          style={hasItemInWishList ? styles.buttonRemove : styles.button}
-          onPress={hasItemInWishList ? unsubscribe : subscribe}
-        >
-          <Text style={styles.text}>
-            {hasItemInWishList ? "Remove from wish list" : "Add to wish list"}
-          </Text>
-        </Pressable>
-      </View>
+      <Pressable
+        style={hasItemInWishList ? styles.buttonRemove : styles.button}
+        onPress={hasItemInWishList ? unsubscribe : subscribe}
+      >
+        <Text style={styles.text}>
+          {hasItemInWishList ? "Remove from wish list" : "Add to wish list"}
+        </Text>
+      </Pressable>
     </View>
   );
 }
@@ -72,49 +61,27 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginVertical: 1,
   },
-  firstButton: {
-    width: "20%",
-    marginRight: 1,
-    height: 48,
-  },
-  secondButton: {
-    width: "80%",
-    height: 48,
-  },
+
   button: {
-    height: 48,
+    width:'100%',
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 10,
     borderRadius: 4,
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    backgroundColor: tintColorLight,
+    
+    fontWeight: 600,
+    borderWidth: 2,
+    borderColor: tintColorLight,
+    borderStyle: 'solid'
   },
   buttonRemove: {
-    height: 48,
+    width:'100%',
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 10,
     borderRadius: 4,
-    shadowColor: "#ffffff",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
     backgroundColor: "#cccccc",
   },
   text: {
@@ -122,7 +89,7 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: "bold",
     letterSpacing: 0.25,
-    color: "white",
+    color: tintColorLight,
   },
   iconButton: {
     alignItems: "center",

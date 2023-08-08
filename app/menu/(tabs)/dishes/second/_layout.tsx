@@ -6,7 +6,24 @@ export const unstable_settings = {
 
 export default function Layout() {
   return (
-      <Stack screenOptions={{ headerShown: false }} />
-      
+    <Stack
+      screenOptions={{
+        headerShown: true,
+        title: "SECOND PLATE",
+        headerTitleStyle: {
+          fontWeight: "400",
+        },
+      }}
+    >
+      <Stack.Screen
+        name="index" // This is the name of the page and must match the url from root
+        options={{
+          headerShown: false,
+          headerTitleStyle: {
+            fontWeight: "300",
+          },
+        }}
+      />
+    </Stack>
   );
 }
