@@ -40,7 +40,7 @@ const Page = ({ data }: { data: CoffeeDataItem[] }) => {
           <Image style={styles.image} source={{ uri: item.image }} />
           <View>
             <Text style={styles.title}>{item.name}</Text>
-            <Text style={styles.subTitle}>{item.type}</Text>
+            <Text style={styles.subTitle}>{item.type}</Text> 
           </View>
           <TouchableOpacity
             style={styles.deleteIcon}

@@ -104,3 +104,10 @@ const styles = StyleSheet.create({
 });
 
 export default CoffeeDetails;
+
+// Static exports settings
+
+export async function generateStaticParams(): Promise<Record<string, string>[]> {
+  
+  return Promise.resolve(data.map((item) => ({ name: item.name })));
+}

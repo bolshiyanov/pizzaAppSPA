@@ -2,7 +2,7 @@ import {  useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import coffee from "@/data/menu/coffeeData/coffeeData";
+import data from "@/data/menu/coffeeData/coffeeData";
 import { currencySymbol } from "@/data/settings/currency";
 
 import { ScrollView } from "react-native-gesture-handler";
@@ -13,7 +13,7 @@ const CoffeeDetails = () => {
   const { name } = useLocalSearchParams();
   const selectedName = Array.isArray(name) ? name[0] : name;
 
-  const item = coffee.find((c) => c.name.toString() === selectedName);
+  const item = data.find((c) => c.name.toString() === selectedName);
   
   const path = "/menu/coffee/classic/"
 
@@ -94,3 +94,10 @@ const styles = StyleSheet.create({
 });
 
 export default CoffeeDetails;
+
+// Static exports settings
+
+export async function generateStaticParams(): Promise<Record<string, string>[]> {
+  
+  return Promise.resolve(data.map((item) => ({ name: item.name })));
+}

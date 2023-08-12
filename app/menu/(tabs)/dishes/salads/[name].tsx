@@ -2,7 +2,7 @@ import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 
-import data from "@/data/menu/dishesData/dishesSaladData.tsx";
+import data from "@/data/menu/dishesData/dishesSaladData";
 import { currencySymbol } from "@/data/settings/currency";
 
 import { ScrollView } from "react-native-gesture-handler";
@@ -122,3 +122,8 @@ const styles = StyleSheet.create({
 });
 
 export default DishesSaladDetails;
+
+export async function generateStaticParams(): Promise<Record<string, string>[]> {
+  
+  return Promise.resolve(data.map((item) => ({ name: item.name })));
+}

@@ -24,7 +24,7 @@ export default function RootLayout() {
           name="index" // This is the name of the page and must match the url from root
           options={{
             drawerLabel: "Home",
-            title: "Fermento",
+            title: "Business Name",
           }}
         />
         <Drawer.Screen
